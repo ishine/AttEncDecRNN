@@ -2,13 +2,21 @@
 
 Attention-based RNN model for Chinese-English translation
 
-## Basic Structure
+## Basic Architecture
 
 <p align="center">
 <img src="https://github.com/P3n9W31/AttEncDecRNN/blob/master/figures/structure.png" width="600">
 </p>
 
 > Britz D, Goldie A, Luong M T, et al. Massive exploration of neural machine translation architectures[J]. arXiv preprint arXiv:1703.03906, 2017.
+
+## Process
+
+<p align="center">
+<img src="https://github.com/P3n9W31/AttEncDecRNN/blob/master/figures/process.gif" width="600">
+</p>
+
+> google/seq2seq. GitHub.  https://github.com/google/seq2seq
 
 ## Data Explanation
 
@@ -34,19 +42,20 @@ The following packages are needed:
 
 ```txt
 terminaltables==3.1.0
-torch==1.3.0
 numpy==1.14.0
+torch==1.3.0
+tensorboardX==1.9
 ```
 
 Easily, you can install all requirement with:
 
 ```
-pip3 -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 You better do it under a Virtual environment, for Pytorch is kinda annoying to migrate between different versions.
 
-### Usage
+## Usage
 
 1. **Generating vocabulary**
 
@@ -78,7 +87,7 @@ You better do it under a Virtual environment, for Pytorch is kinda annoying to m
 
 2. **Modifying hyperparameters**
 
-   Some of the hyperparameters is as follow:
+   Some of the hyperparameters are as follow:
 
    ```TXT
    +-----------------+----------------------+-----------------------------------------------+
@@ -158,9 +167,15 @@ You better do it under a Virtual environment, for Pytorch is kinda annoying to m
    ./start.sh
    ```
 
+4. Visualize the training process on tensorboard
+
+   ```bash
+   tensorboard --logdir runs
+   ```
+
    
 
-### Evaluation
+## Evaluation
 
 The evaluation metric for Chinese-English we use is case-insensitive BLEU. We use the `muti-bleu.perl` script from [Moses](https://github.com/moses-smt/mosesdecoder) to compute the BLEU.
 
@@ -171,9 +186,10 @@ Loss and BLEU Score:
 <img src="https://github.com/P3n9W31/AttEncDecRNN/blob/master/figures/bleu.png" width="400">
 </p>
 
+As the data I use is too simple, the results are **just a reference**.
 
+## Results on Chinese-English translation
 
-### Results on Chinese-English translation
 1. Epoch-1
 
    ```
@@ -234,7 +250,7 @@ Loss and BLEU Score:
    +------------+-------------------------------------------------------------------------------------------------------------------------------------------+
    ```
 
-   As the data I use is too simple, the results are **just a reference**.
+   Again, the results are **just a reference**.
 
 
 
